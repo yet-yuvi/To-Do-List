@@ -6,8 +6,8 @@
     <title>Document</title>
     <style>
         .tasks__container{
-            border: 1px solid red;
-
+            padding: 20px 20px;
+            border: 1px solid rgb(231, 226, 226);
         }
     </style>
 </head>
@@ -22,28 +22,60 @@
     
 
     <script>
-        let tasks = [];
+        
+        let tasks = [
+            {title: 'Join the class', toDo: '12-12-2023', id: 'id1'},
+            {title: 'Watch movie',toDo: '12-12-2023', id: 'id2'}
+        ];
 
         renderTask()
         
         function addTask(){
             let taskInput = document.querySelector('.task__input');
             let newTask = taskInput.value;
-            taskInput.value = ' ';
+            taskInput.value = '';
             let datePicker = document.querySelector('.date__picker');
             let dueDate = datePicker.value;
             datePicker.value = '';
-            tasks.push(newTask+' '+dueDate);
+            const id = new Date().getTime();
+            console.log(id);
+            tasks.push({title: newTask, toDo: dueDate, id: id});
             renderTask()
+        }
+
+        function deleteTask(event){
+            const deleteButton = event.target;
+            const idToBeDelete = deleteButton.id;
+            
+            tasks = tasks.filter( function (task) {
+                if (task.id!==idToBeDelete) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            });
+
+            renderTask();
         }
 
         function renderTask(){
                 document.querySelector('.tasks__container').innerHTML = '';
-                tasks.forEach(function (taskTitle){
+
+                tasks.forEach(function (task){
                 let element = document.createElement('div');
-                element.innerText = taskTitle;
+                element.innerText = task.title+' '+task.toDo;
                 let taskList = document.querySelector('.tasks__container');
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Delete';
+                
+                deleteButton.style = 'margin-left: 20px; background: tomato; padding: -1px -2px; border: 1px solid gray; border-radius: 5px;';
+                deleteButton.onclick = deleteTask; //referance
+                deleteButton.id = task.id;
                 taskList.appendChild(element);
+                element.appendChild(deleteButton);
+
             })
         }
         
