@@ -22,24 +22,27 @@
     
 
     <script>
-        let tasks = ['task1','task2','task3'];
+        let tasks = [];
 
         renderTask()
         
         function addTask(){
             let taskInput = document.querySelector('.task__input');
             let newTask = taskInput.value;
-            taskInput.value = ' '
-            tasks.push(newTask);
+            taskInput.value = ' ';
+            let datePicker = document.querySelector('.date__picker');
+            let dueDate = datePicker.value;
+            datePicker.value = '';
+            tasks.push(newTask+' '+dueDate);
             renderTask()
         }
 
         function renderTask(){
-            document.querySelector('.tasks__container').innerHTML = '';
-            tasks.forEach(function (taskTitle){
+                document.querySelector('.tasks__container').innerHTML = '';
+                tasks.forEach(function (taskTitle){
                 let element = document.createElement('div');
                 element.innerText = taskTitle;
-                let taskList = document.querySelector('.tasks__container')
+                let taskList = document.querySelector('.tasks__container');
                 taskList.appendChild(element);
             })
         }
