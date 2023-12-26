@@ -22,11 +22,9 @@
     
 
     <script>
-        
-        let tasks = [
-            {title: 'Join the class', toDo: '12-12-2023', id: 'id1'},
-            {title: 'Watch movie',toDo: '12-12-2023', id: 'id2'}
-        ];
+
+
+        let tasks = [];
 
         renderTask()
         
@@ -34,12 +32,16 @@
             let taskInput = document.querySelector('.task__input');
             let newTask = taskInput.value;
             taskInput.value = '';
+
             let datePicker = document.querySelector('.date__picker');
             let dueDate = datePicker.value;
             datePicker.value = '';
-            const id = new Date().getTime();
+
+            const id = new Date().getTime().toString();
             console.log(id);
+
             tasks.push({title: newTask, toDo: dueDate, id: id});
+
             renderTask()
         }
 
@@ -48,7 +50,7 @@
             const idToBeDelete = deleteButton.id;
             
             tasks = tasks.filter( function (task) {
-                if (task.id!==idToBeDelete) {
+                if (task.id === idToBeDelete) {
                     return false;
                 }
                 else {
