@@ -46,8 +46,8 @@
         }
 
         function deleteTask(event){
-            const deleteButton = event.target;
-            const idToBeDelete = deleteButton.id;
+            const deleteButton = event.target;       // what the target?
+            const idToBeDelete = deleteButton.id;    // which id?
             
             tasks = tasks.filter( function (task) {
                 if (task.id === idToBeDelete) {
