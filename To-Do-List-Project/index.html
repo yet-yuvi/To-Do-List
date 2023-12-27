@@ -31,7 +31,7 @@
         //create Task
         function createTask(titleValue,toDoValue){
             const id = new Date().getTime().toString();
-            console.log(id);
+            console.log(id);   // It is Unnessery
 
             tasks.push({title: titleValue, toDo: toDoValue, id: id});
         }
@@ -54,17 +54,23 @@
 
         //-------Controller Start-------//
         function addTask(){
+
             let taskInput = document.querySelector('.task__input');
             let newTask = taskInput.value;
-            taskInput.value = '';
 
             let datePicker = document.querySelector('.date__picker');
             let dueDate = datePicker.value;
-            datePicker.value = '';
 
-            createTask(newTask, dueDate);
-
-            renderTask()
+                if (newTask === '' || dueDate === '') {
+                alert("oOops! 404 Error")
+                } 
+                else {
+                taskInput.value = '';
+                datePicker.value = '';
+                createTask(newTask, dueDate);
+                renderTask()
+                }  
+                
         }
 
         function deleteTask(event){
@@ -93,6 +99,7 @@
                 deleteButton.innerText = 'Delete';
                 
                 deleteButton.style = 'margin-left: 20px; background: tomato; padding: -1px -2px; border: 1px solid gray; border-radius: 5px;';
+                deleteButton.className = 'delete__btn';
                 deleteButton.id = task.id;
                 taskList.appendChild(element);
                 element.appendChild(deleteButton);
