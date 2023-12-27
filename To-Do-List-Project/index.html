@@ -24,10 +24,35 @@
     <script>
 
 
-        let tasks = [];
 
-        renderTask()
+        //-------Model Starts-------//
+        let tasks = [];
         
+        //create Task
+        function createTask(titleValue,toDoValue){
+            const id = new Date().getTime().toString();
+            console.log(id);
+
+            tasks.push({title: titleValue, toDo: toDoValue, id: id});
+        }
+
+        //Delete__Remove Task
+        function removeTask(removeId){
+            tasks = tasks.filter( function (task) {
+                if (task.id === removeId) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            });
+        }
+         
+        //------- Model Ends Here-------//
+
+
+
+        //-------Controller Start-------//
         function addTask(){
             let taskInput = document.querySelector('.task__input');
             let newTask = taskInput.value;
@@ -37,10 +62,7 @@
             let dueDate = datePicker.value;
             datePicker.value = '';
 
-            const id = new Date().getTime().toString();
-            console.log(id);
-
-            tasks.push({title: newTask, toDo: dueDate, id: id});
+            createTask(newTask, dueDate);
 
             renderTask()
         }
@@ -49,18 +71,16 @@
             const deleteButton = event.target;       // what the target?
             const idToBeDelete = deleteButton.id;    // which id?
             
-            tasks = tasks.filter( function (task) {
-                if (task.id === idToBeDelete) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            });
+            removeTask(idToBeDelete);
 
             renderTask();
         }
 
+        //-------Controller Ends-------//
+
+
+
+        //-------View Part Start-------//
         function renderTask(){
                 document.querySelector('.tasks__container').innerHTML = '';
 
@@ -73,14 +93,17 @@
                 deleteButton.innerText = 'Delete';
                 
                 deleteButton.style = 'margin-left: 20px; background: tomato; padding: -1px -2px; border: 1px solid gray; border-radius: 5px;';
-                deleteButton.onclick = deleteTask; //referance
                 deleteButton.id = task.id;
                 taskList.appendChild(element);
                 element.appendChild(deleteButton);
+                deleteButton.onclick = deleteTask; //referance
+                
 
             })
         }
-        
+
+        //-------View Ends-------//
+
     </script>
 </body>
 
