@@ -27,13 +27,26 @@
 
         //-------Model Starts-------//
         let tasks = [];
+
+        //Retrive Task
+        const retriveTask = JSON.parse(localStorage.getItem('key'));
+
+        if (Array.isArray(retriveTask)){
+            tasks = retriveTask;
+        }
+        else {
+            tasks = [];
+        }
+
+        renderTask();
         
         //create Task
         function createTask(titleValue,toDoValue){
-            const id = new Date().getTime().toString();
-            console.log(id);   // It is Unnessery
+            const taskId = new Date().getTime().toString();
+            console.log(taskId);   // It is Unnessery
 
-            tasks.push({title: titleValue, toDo: toDoValue, id: id});
+            tasks.push({title: titleValue, toDo: toDoValue, id: taskId});
+            saveTaskInBrowser()
         }
 
         //Delete__Remove Task
@@ -46,8 +59,14 @@
                     return true;
                 }
             });
+            saveTaskInBrowser()
         }
-         
+        
+        function saveTaskInBrowser(){
+            localStorage.setItem('key', JSON.stringify(tasks));
+        }
+        
+
         //------- Model Ends Here-------//
 
 
