@@ -165,16 +165,9 @@ body{
   /* position: absolute;
   right: 150px;
   left: 50px; */
-  width: 600px;
+  width: 750px;
   overflow: auto;
 }
-
-.todo__element {
-  /* display: inline-flex; */
-  /* position: absolute;
-  right: 50px; */
-}
-
 
     
     .delete__btn {

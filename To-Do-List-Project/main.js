@@ -89,7 +89,8 @@ function renderTask(){
         element.className = 'element__box';
 
         let serialElement = document.createElement('div');
-        serialElement.innerText = ++cnt;
+        ++cnt;
+        serialElement.innerText = serialConvention(cnt, tasks.length);
         serialElement.className = 'serial__element';
 
         let textElement = document.createElement('div');
@@ -126,3 +127,27 @@ function renderTask(){
 
 //-------View Ends-------//
 
+
+
+//-------Utils Start-------//
+
+function serialConvention(count, total) {
+    let ans = '';
+    let ct = count, num = 0;
+    while (ct > 0) {
+      ct = Math.floor(ct / 10);
+      num++;
+    }
+    let n = 0, m = total;
+    while (m > 0) {
+      m = Math.floor(m / 10);
+      n++;
+    }
+    for (let i = 0; i < n - num; i++) {
+      ans = ans + '0';
+    }
+    ans = ans + count;
+    return ans;
+  }
+
+//-------Utils Ends-------//
