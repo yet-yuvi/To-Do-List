@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
     <style>
         .tasks__container{
             padding: 20px 20px;
@@ -13,124 +15,24 @@
 </head>
 
 <body>
-
-    <p>Jubi's Task Manager</p>
-    <input type="text" class="task__input">
-    <input type="date" class="date__picker">
-    <button onclick="addTask()">Add</button>
-    <div class="tasks__container"></div>
-    
-
-    <script>
-
-
-
-        //-------Model Starts-------//
-        let tasks = [];
-
-        //Retrive Task
-        const retriveTask = JSON.parse(localStorage.getItem('key'));
-
-        if (Array.isArray(retriveTask)){
-            tasks = retriveTask;
-        }
-        else {
-            tasks = [];
-        }
-
-        renderTask();
+    <div class="container">
+        <div class="task__app">
+            <div class="top">
+                <h1>Jubi's Task Manager</h1>
+                <img class="writing__pic" src="writing.png" alt="Pic">
+            </div>
+            <div class="input__row">
+                <input type="text" class="task__input" placeholder="Write Task here">
+                <input type="date" class="date__picker">
+                <button class="add__btn" onclick="addTask()">Add</button>
+            </div>
+            <div class="tasks__container"></div>
         
-        //create Task
-        function createTask(titleValue,toDoValue){
-            const taskId = new Date().getTime().toString();
-            console.log(taskId);   // It is Unnessery
+            <script src="main.js">
 
-            tasks.push({title: titleValue, toDo: toDoValue, id: taskId});
-            saveTaskInBrowser()
-        }
-
-        //Delete__Remove Task
-        function removeTask(removeId){
-            tasks = tasks.filter( function (task) {
-                if (task.id === removeId) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            });
-            saveTaskInBrowser()
-        }
-        
-        function saveTaskInBrowser(){
-            localStorage.setItem('key', JSON.stringify(tasks));
-        }
-        
-
-        //------- Model Ends Here-------//
-
-
-
-        //-------Controller Start-------//
-        function addTask(){
-
-            let taskInput = document.querySelector('.task__input');
-            let newTask = taskInput.value;
-
-            let datePicker = document.querySelector('.date__picker');
-            let dueDate = datePicker.value;
-
-                if (newTask === '' || dueDate === '') {
-                alert("oOops! 404 Error")
-                } 
-                else {
-                taskInput.value = '';
-                datePicker.value = '';
-                createTask(newTask, dueDate);
-                renderTask()
-                }  
-                
-        }
-
-        function deleteTask(event){
-            const deleteButton = event.target;       // what the target?
-            const idToBeDelete = deleteButton.id;    // which id?
-            
-            removeTask(idToBeDelete);
-
-            renderTask();
-        }
-
-        //-------Controller Ends-------//
-
-
-
-        //-------View Part Start-------//
-        function renderTask(){
-                document.querySelector('.tasks__container').innerHTML = '';
-
-                tasks.forEach(function (task){
-                let element = document.createElement('div');
-                element.innerText = task.title+' '+task.toDo;
-                let taskList = document.querySelector('.tasks__container');
-                
-                const deleteButton = document.createElement('button');
-                deleteButton.innerText = 'Delete';
-                
-                deleteButton.style = 'margin-left: 20px; background: tomato; padding: -1px -2px; border: 1px solid gray; border-radius: 5px;';
-                deleteButton.className = 'delete__btn';
-                deleteButton.id = task.id;
-                taskList.appendChild(element);
-                element.appendChild(deleteButton);
-                deleteButton.onclick = deleteTask; //referance
-                
-
-            })
-        }
-
-        //-------View Ends-------//
-
-    </script>
+            </script>
+        </div>
+    </div>
 </body>
 
 </html>
