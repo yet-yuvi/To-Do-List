@@ -46,7 +46,6 @@ function saveTaskInBrowser(){
 
 //-------Controller Start-------//
 function addTask(){
-    // let serialNum = tasks.length+1;
     
     let taskInput = document.querySelector('.task__input');
     let newTask = taskInput.value;
@@ -65,71 +64,6 @@ function addTask(){
         }  
     
 }
-
-function deleteTask(event){
-    const deleteButton = event.target;       // what the target?
-    const idToBeDelete = deleteButton.id;    // which id?
-
-    removeTask(idToBeDelete);
-
-    renderTask();
-}
-
-//-------Controller Ends-------//
-
-
-
-//-------View Part Start-------//
-function renderTask(){
-        document.querySelector('.tasks__container').innerHTML = '';
-        let cnt = 0;
-        
-        tasks.forEach(function (task){
-        let element = document.createElement('div');
-        element.className = 'element__box';
-
-        let serialElement = document.createElement('div');
-        ++cnt;
-        serialElement.innerText = serialConvention(cnt, tasks.length);
-        serialElement.className = 'serial__element';
-
-        let textElement = document.createElement('div');
-        textElement.innerText = task.title;
-        textElement.className = 'text__element';
-
-        let toDoElement = document.createElement('div');
-        toDoElement.innerText = task.toDo;
-        toDoElement.className = 'todo__element';
-
-        // element.innerText = task.serial +' '+ task.title+' '+task.toDo;
-        
-        const deleteButton = document.createElement('button');
-        
-        // deleteButton.innerText = ``;
-        
-        // deleteButton.style = 'margin-left: 20px; background: tomato; padding: -1px -2px; border: 1px solid gray; border-radius: 5px; background-image: url('/delete.png');';
-        deleteButton.className = 'delete__btn';
-        deleteButton.id = task.id;
-        let taskList = document.querySelector('.tasks__container');
-        
-        element.appendChild(serialElement);
-        element.appendChild(textElement);
-        element.appendChild(toDoElement);
-
-        taskList.appendChild(element);
-        element.appendChild(deleteButton);
-        
-        deleteButton.onclick = deleteTask; //referance
-    
-
-    })
-}
-
-//-------View Ends-------//
-
-
-
-//-------Utils Start-------//
 
 function serialConvention(count, total) {
     let ans = '';
@@ -150,4 +84,57 @@ function serialConvention(count, total) {
     return ans;
   }
 
-//-------Utils Ends-------//
+function deleteTask(event){
+    const deleteButton = event.target;       // what the target?
+    const idToBeDelete = deleteButton.id;    // which id?
+
+    removeTask(idToBeDelete);
+
+    renderTask();
+}
+
+//-------Controller Ends-------//
+
+
+
+//-------View Part Start-------//
+function renderTask(){
+        document.querySelector('.tasks__container').innerHTML = '';
+
+        let cnt = 0;
+        
+        tasks.forEach(function (task){
+        let element = document.createElement('div');
+        element.className = 'element__box';
+
+        let serialElement = document.createElement('div');
+        ++cnt;
+        serialElement.innerText = serialConvention(cnt, tasks.length);
+        serialElement.className = 'serial__element';
+
+        let textElement = document.createElement('div');
+        textElement.innerText = task.title;
+        textElement.className = 'text__element';
+
+        let toDoElement = document.createElement('div');
+        toDoElement.innerText = task.toDo;
+        toDoElement.className = 'todo__element';
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete__btn';
+        deleteButton.id = task.id;
+        let taskList = document.querySelector('.tasks__container');
+        
+        element.appendChild(serialElement);
+        element.appendChild(textElement);
+        element.appendChild(toDoElement);
+        element.appendChild(deleteButton);
+        taskList.appendChild(element);
+        
+        deleteButton.onclick = deleteTask; //referance
+    
+
+    })
+}
+
+//-------View Ends-------//
