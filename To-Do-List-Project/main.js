@@ -14,11 +14,11 @@ else {
 renderTask();
 
 //create Task
-function createTask(serialValue,titleValue,toDoValue){
+function createTask(titleValue,toDoValue){
     const taskId = new Date().getTime().toString();
     console.log(taskId);   // It is Unnessery
 
-    tasks.push({serial: serialValue, title: titleValue, toDo: toDoValue, id: taskId});
+    tasks.push({ title: titleValue, toDo: toDoValue, id: taskId});
     saveTaskInBrowser()
 }
 
@@ -46,7 +46,7 @@ function saveTaskInBrowser(){
 
 //-------Controller Start-------//
 function addTask(){
-    let serialNum = tasks.length+1;
+    // let serialNum = tasks.length+1;
     
     let taskInput = document.querySelector('.task__input');
     let newTask = taskInput.value;
@@ -60,7 +60,7 @@ function addTask(){
         else {
         taskInput.value = '';
         datePicker.value = '';
-        createTask(serialNum, newTask, dueDate);
+        createTask(newTask, dueDate);
         renderTask()
         }  
     
@@ -82,13 +82,14 @@ function deleteTask(event){
 //-------View Part Start-------//
 function renderTask(){
         document.querySelector('.tasks__container').innerHTML = '';
-
+        let cnt = 0;
+        
         tasks.forEach(function (task){
         let element = document.createElement('div');
-
+        element.className = 'element__box';
 
         let serialElement = document.createElement('div');
-        serialElement.innerText = task.serial;
+        serialElement.innerText = ++cnt;
         serialElement.className = 'serial__element';
 
         let textElement = document.createElement('div');
@@ -124,3 +125,4 @@ function renderTask(){
 }
 
 //-------View Ends-------//
+
