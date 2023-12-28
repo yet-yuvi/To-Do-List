@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(150deg, #153677, #4e085f);
+  padding: 10px;
+}
+
+.task__app {
+  position: relative;
+  background-color: green;
+  width: 70%;
+  background-color: #fff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.top h1 {
+  color: #002765;
+  margin-top: 20px;
+  margin-right: 10px; 
+}
+
+.writing__pic {
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+}
+
+.input__row {
+  position: relative;
+  display: flex;
+  /* gap: 10px; */
+  align-items: center;
+  justify-content: space-around;
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding: 0px 0px 0px 20px;
+  margin-bottom: 25px;
+}
+
+.task__input {
+  flex: 1;
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 16px;
+}
+
+.date__picker::-webkit-datetime-edit-text {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.date__picker::-webkit-datetime-edit-month-field{
+  -webkit-appearance: none;
+  display: none;
+}
+
+.date__picker::-webkit-datetime-edit-day-field {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.date__picker::-webkit-datetime-edit-year-field {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.date__picker::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.date__picker {
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: scale(-10%,-10%) */ 
+  background: transparent url(calendar.png) ;
+  /* background-position: 90%; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.add__btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 30px;
+  background-color: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 14px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+}
+
+
+.serial__element {
+  display: inline-flex;
+}
+.text__element {
+  display: inline-flex;
+}
+.todo__element {
+  display: inline-flex;
+}
+
+
+    
+    .delete__btn {
+      width: 25px;
+      height: 25px;
+      margin-left: 20px;
+      background: transparent;
+      padding: -1px -2px;
+      border: none;
+      border-radius: 50%;
+      background-image: url('trash.png');
+      background-position:center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+
