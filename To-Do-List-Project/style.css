@@ -201,3 +201,214 @@ body{
 }
     
 
+/* Media Query */
+
+@media(max-width: 600px) {
+  
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Lato', sans-serif;
+      transition: all .5s ease;
+    }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(150deg, #153677, #4e085f);
+      padding: 5px;
+    }
+
+    .task__app {
+      /* position: relative; */
+      width: 90%;
+      background-color: #fff;
+      margin: 20px auto 20px;
+      padding: 20px 10px 20px;
+      border-radius: 10px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .top h1 {
+      color: #002765;
+      font-size: 22px;
+      margin-top: 15px;
+      margin-right: 15px; 
+    }
+
+    .writing__pic {
+      width: 60px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .input__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #edeef0;
+      border-radius: 30px;
+      height: 35px;
+      padding: 0px 0px 0px 10px;
+      margin-bottom: 15px;
+    }
+
+    .task__input {
+      flex: 1;
+      background-color: transparent;
+      padding: 5px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 1.2rem;
+    }
+
+    .date__picker::-webkit-datetime-edit-text {
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    .date__picker::-webkit-datetime-edit-month-field{
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    .date__picker::-webkit-datetime-edit-day-field {
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    .date__picker::-webkit-datetime-edit-year-field {
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    .date__picker::-webkit-calendar-picker-indicator {
+      -webkit-appearance: none;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .date__picker {
+      height: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer; 
+      background: transparent url(calendar.webp) ;
+      background-position:center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .add__btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      height: 100%;
+      background-color: #ff5945;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 20px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+
+    }
+
+    .tasks__container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow: auto;
+      padding: 15px 0px 15px 10px;
+      gap: 10px;
+    }
+
+    .element__box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content:flex-start;
+      gap: 5px;
+      user-select: none;
+      overflow: auto;
+    }
+
+
+    .serial__element {
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      padding: 0px 2px 1px 2px;
+      background-color: #ff5945;
+      font-size: 12px;
+      font-weight: 1.3rem;
+      color: #fff;
+      text-align: center; 
+    }
+    .text__element { 
+      font-size: 12px;
+      width: 200px;
+      overflow: auto;
+    }
+
+    .todo__element {
+      background: #edeef0;
+      border-radius: 30px;
+      margin-left: 20px;
+      padding: 1px 2px;
+      font-size: 8px;
+      font-weight: 1.2rem;
+      color: #ffffff;
+      border: 1px solid white;
+      box-shadow: 0px 0px 0px 1px rgba(203, 203, 203, 0.5);
+    }
+
+    .todo__element:hover {
+      cursor: none;
+      background: #ff5945;
+      margin-left: 15px;
+      padding: 1px 2px;
+      font-size: 10px;
+      font-weight: 1.2rem;
+      color: #ffffff;
+      border: 1px solid white;
+      outline: none;
+      transform: scale(1.02);
+      transition: all .5s ease;
+      box-shadow: 0px 0px 0px 1px rgba(255, 89, 69, .5);
+    }
+
+        
+    .delete__btn {
+      width: 20px;
+      height: 20px;
+      justify-content: end;
+      cursor: pointer;
+      background: transparent;
+      padding: -1px -2px;
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      background-image: url('trash.webp');
+      background-position:center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+}
