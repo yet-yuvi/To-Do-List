@@ -31,7 +31,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .top h1 {
@@ -53,7 +52,7 @@ body{
   background-color: #edeef0;
   border-radius: 30px;
   padding: 0px 0px 0px 20px;
-  margin-bottom: 25px;
+  margin: 20px 0px 25px;
 }
 
 .task__input {
@@ -138,6 +137,7 @@ body{
   gap: 20px;
   user-select: none;
   overflow: auto;
+  /* background-color: grey; */
 }
 
 
@@ -153,8 +153,8 @@ body{
   text-align: center; 
 }
 .text__element { 
+  flex: 1;
   font-size: 16px;
-  width: 760px;
   overflow: auto;
 }
 
@@ -275,31 +275,31 @@ body{
     }
 
     .date__picker::-webkit-datetime-edit-text {
-      -webkit-appearance: none !important;
-      display: none !important;
+      -webkit-appearance: none;
+      display: none;
     }
 
     .date__picker::-webkit-datetime-edit-month-field{
-      -webkit-appearance: none !important;
-      display: none !important;
+      -webkit-appearance: none;
+      display: none;
     }
 
     .date__picker::-webkit-datetime-edit-day-field {
-      -webkit-appearance: none !important;
-      display: none !important;
+      -webkit-appearance: none;
+      display: none;
     }
 
     .date__picker::-webkit-datetime-edit-year-field {
-      -webkit-appearance: none !important;
-      display: none !important;
+      -webkit-appearance: none;
+      display: none;
     }
 
     .date__picker::-webkit-calendar-picker-indicator {
-      -webkit-appearance: none !important;
-      opacity: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      cursor: pointer !important;
+      -webkit-appearance: none;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
     }
 
     .date__picker {
@@ -334,7 +334,7 @@ body{
       flex-wrap: wrap;
       justify-content: center;
       overflow: auto;
-      padding: 15px 0px 15px 10px;
+      padding: 15px 0px 15px 0px;
       gap: 10px;
     }
 
@@ -361,15 +361,14 @@ body{
       text-align: center; 
     }
     .text__element { 
+      flex: 1;
       font-size: 12px;
-      width: 200px;
       overflow: auto;
     }
 
     .todo__element {
       background: #edeef0;
       border-radius: 30px;
-      margin-left: 20px;
       padding: 1px 2px;
       font-size: 8px;
       font-weight: 1.2rem;
